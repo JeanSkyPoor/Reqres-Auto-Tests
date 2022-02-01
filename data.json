@@ -1,0 +1,12 @@
+{
+"post_create": [{"name": "morpheus", 
+    "job": "leader"}],
+"put_update": [{"name": "morpheus",
+    "job": "zion resident"}],
+"post_register_successful": [{"email": "eve.holt@reqres.in",
+    "password": "pistol"}],
+"post_register_unsuccessful": [{"email": "sydney@fife"}],
+"post_login_successful": [{"email": "eve.holt@reqres.in",
+    "password": "cityslicka"}],
+"post_login_unsuccessful": [{"email": "peter@klaven"}]
+}

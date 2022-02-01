@@ -1,1 +1,1 @@
-Reqres-Auto_Tests
+Auto tests for https://reqres.in.

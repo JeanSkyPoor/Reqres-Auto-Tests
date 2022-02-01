@@ -1,12 +1,23 @@
 import json
 
-def check_code_response(response, status_code) -> None:
-    assert status_code == response.status_code
 
-def read_and_return_data(name_func):
+def check_code_response(response, status_code: int) -> None:
     """
-    Return correct data for func from data.json file
+    match response.status_code and entered code
+
+    response: response not in json format
+    status code: int object
     """
-    with open("data.json", 'r') as f:
+    assert response.status_code == status_code 
+
+
+def read_and_return_data(name_func: str, name_file: str) -> dict:
+    """
+    Return correct data for func from name_file
+    
+    name_func: key for dict (for example "get_sigle_user_not_found")
+    name_file: name of your file with data (for example "data.json")
+    """
+    with open(f"{name_file}", 'r') as f:
         data = json.load(f)
         return data[name_func][0]

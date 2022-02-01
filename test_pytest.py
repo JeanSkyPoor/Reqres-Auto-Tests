@@ -1,6 +1,7 @@
 import requests
 from secondary_func import *
 from env_variables import *
+import json
 
 def test_get_list_users():
     response = requests.get(f'{BASE_URL}api/users?page=2')
@@ -29,8 +30,7 @@ def test_get_sigle_user_not_found():
 
 
 def test_post_create():
-    response = requests.post(f'{BASE_URL}api/users', data={'name': 'morpheus', 
-                                                            'job': 'leader'})
+    response = requests.post(f'{BASE_URL}api/users', data=read_and_return_data('post_create'))
 
     check_code_response(response, 201)
     response = response.json()
@@ -41,8 +41,7 @@ def test_post_create():
 
 
 def test_put_update():
-    response = requests.put(f'{BASE_URL}api/users/2', data={'name': 'morpheus', 
-                                                            'job': 'zion resident'})
+    response = requests.put(f'{BASE_URL}api/users/2', data=read_and_return_data('put_update'))
 
     check_code_response(response, 200)
     response = response.json()
@@ -57,8 +56,7 @@ def test_delete_user():
 
 
 def test_post_register_successful():
-    response = requests.post(f'{BASE_URL}api/register', data={'email': 'eve.holt@reqres.in',
-                                                              'password': 'pistol'})
+    response = requests.post(f'{BASE_URL}api/register', data=read_and_return_data('post_register_successful'))
 
     check_code_response(response, 200)
     response = response.json()
@@ -67,7 +65,7 @@ def test_post_register_successful():
 
 
 def test_post_register_unsuccessful():
-    response = requests.post(f'{BASE_URL}api/register', data={'email': 'sydney@fife'})
+    response = requests.post(f'{BASE_URL}api/register', data=read_and_return_data('post_register_unsuccessful'))
 
     check_code_response(response, 400)
     response = response.json()
@@ -76,8 +74,7 @@ def test_post_register_unsuccessful():
 
 
 def test_post_login_successful():
-    response = requests.post(f'{BASE_URL}api/login', data={'email': 'eve.holt@reqres.in',
-                                                           'password': 'cityslicka'})
+    response = requests.post(f'{BASE_URL}api/login', data=read_and_return_data('post_login_successful'))
                                                                         
     check_code_response(response, 200)
     response = response.json()
@@ -86,7 +83,7 @@ def test_post_login_successful():
 
 
 def test_post_login_unsuccessful():
-    response = requests.post(f'{BASE_URL}api/login', data={'email': 'peter@klaven'})
+    response = requests.post(f'{BASE_URL}api/login', data=read_and_return_data('post_login_unsuccessful'))
     check_code_response(response, 400)
     response = response.json()
 

@@ -1,6 +1,6 @@
 import requests
 from secondary_func import *
-
+from env_variables import *
 
 def test_get_list_users():
     response = requests.get(f'{BASE_URL}api/users?page=2')

@@ -13,7 +13,7 @@ def check_code_response(response, status_code: int) -> None:
 
 def read_and_return_data(name_func: str, name_file: str) -> dict:
     """
-    Return correct data for func from name_file
+    Return correct data for func from file_name
 
     name_func: key for dict (for example "get_sigle_user_not_found")
     name_file: name of your file with data (for example "data.json")

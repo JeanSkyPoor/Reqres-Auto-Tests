@@ -9,7 +9,10 @@ import pytest
 @pytest.mark.regression
 @allure.severity(allure.severity_level.MINOR)
 def test_get_list_users():
+
+    @allure.step('start connection')
     response = requests.get(f'{BASE_URL}api/users?page=2')
+    @allure.step('connection complete')
 
     check_code_response(response, 200)
     response = response.json()

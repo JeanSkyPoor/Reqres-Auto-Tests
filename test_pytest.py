@@ -5,6 +5,7 @@ import allure
 import pytest
 
 
+
 @pytest.mark.regression
 @allure.severity(allure.severity_level.MINOR)
 def test_get_list_users():
